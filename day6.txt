@@ -1,0 +1,39 @@
+HTTP Methods/ Verbs: HTTP maa garne actions haru
+-GET: server baata kei read/load garne(default)
+-POST: 
+-PUT: entire data update
+-PATCH: update some portion
+-DELETE
+
+
+REST API
+REST API ko principle follow garera banako API IS Restful API
+-Create: POST
+-Read: GET
+-Update: PUT/ PATCH
+-Delete: DELETE
+
+
+HTTP Status Codes: 3-digit number
+Categories of Status codes:
+-1xx: Informational (acknowledgement)
+-2xx: Success (default: 200 OK) we use
+-3xx: Redirect
+-4xx: Client error we use
+-5xx: Server error
+
+http://localhost:5000?name=Keshav&age=21  // after ? it is query string
+
+client baata aaune harek data request through aauchha
+
+hashing is done using bcrypt and key is stored in database
+bcrypt and bcryptjs are different
+
+bcrypt is dependency independent package only depends on JS
+
+
+userId in mongo : user._id
+
+extra data haru ko laagi Headers in postman
+
+

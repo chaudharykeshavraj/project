@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontEnd</title>
+</head>
+<body>
+    <input id="in1" />    <!--input is for pure JS-->
+    <br><br>
+    <input id="in2" />    <!--input is for pure JS-->
+    <br><br>
+
+    <div id="out" ></div>
+    <br><br>
+
+    <button type="button" id="add" >+</button>
+    <button type="button" id="sub" >-</button>
+    <button type="button" id="mul" >*</button>
+    <button type="button" id="div" >/</button>
+
+
+    <script>
+
+        document.querySelector('#in1').value = 3
+        document.querySelector('#in2').value = 2
+
+        document.querySelector('#add').onclick = () => {
+            let data1 = document.querySelector('#in1').value
+            let data2 = document.querySelector('#in2').value
+            document.querySelector('#out').innerHTML = `${Number(data1) + Number(data2)}`
+        }
+        document.querySelector('#sub').onclick = () => {
+            let data1 = document.querySelector('#in1').value
+            let data2 = document.querySelector('#in2').value
+            document.querySelector('#out').innerHTML = `${Number(data1) - Number(data2)}`
+        }
+        document.querySelector('#mul').onclick = () => {
+            let data1 = document.querySelector('#in1').value
+            let data2 = document.querySelector('#in2').value
+            document.querySelector('#out').innerHTML = `${Number(data1) * Number(data2)}`
+        }
+        document.querySelector('#div').onclick = () => {
+            let data1 = document.querySelector('#in1').value
+            let data2 = document.querySelector('#in2').value
+            document.querySelector('#out').innerHTML = `${Number(data1) / Number(data2)}`
+        }
+
+        
+        /*const handleClick = () => {
+            console.log('Button Click!')
+        }*/
+
+        /* document.querySelector('#btn').onclick = () => {
+            console.log('Clicked')
+        } */
+
+        /* document.querySelector('#in').value = 'Hi'
+
+        document.querySelector('#btn').onclick = () => {
+            let data = document.querySelector('#in').value
+
+            document.querySelector('#out').innerHTML = `<h1>${data}</h1>`
+        } */
+    </script>
+
+</body>
+</html>

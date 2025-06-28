@@ -1,0 +1,31 @@
+https://github.com/nitishbroadway/mern-bct
+
+dev dependencies install: -D
+
+
+
+DATABASE: 
+Users
+-name
+-email *
+-password
+-contact
+-address
+-role: admin, author
+
+Categories
+-name
+
+Articles
+-title
+-content
+-image
+-categoryID
+
+Comments
+-name
+-email
+-content
+-articleID
+
+

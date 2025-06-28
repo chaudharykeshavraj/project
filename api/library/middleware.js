@@ -1,15 +1,14 @@
 const jwt = require('jsonwebtoken')
-const {jwtKey} = require('./constants')
-const User = require('../models/user.model.js')
+const { jwtKey } = require('./constants')
+const User = require('../models/user.model')
+const multer = require('multer')
 
 const auth = async (req, res, next) => {
     try {
         if('authorization' in req.headers) {
-            const token = req.headers.authorization.split(' ').pop()       // token is : Bearer <token_value>
+            const token = req.headers.authorization.split(' ').pop()
 
             const decoded = jwt.verify(token, jwtKey)
-
-            //res.send(decoded)   // token herna ko laagi in postman
 
             const user = await User.findById(decoded.uid)
 
@@ -17,13 +16,13 @@ const auth = async (req, res, next) => {
 
             next()
         } else {
-            next ({
+            next({
                 message: 'Auth token is missing!',
                 status: 401,
             })
         }
     } catch(error) {
-        next ({
+        next({
             message: 'Auth token is invalid!',
             status: 401,
         })
@@ -41,4 +40,18 @@ const adminOnly = (req, res, next) => {
     }
 }
 
-module.exports = {auth, adminOnly}
+const upload = () => multer({
+    storage: multer.diskStorage({
+        filename: (req, file, cb) => {
+            const ext = file.originalname.split('.').pop()
+            const filename = Date.now() + '-' + Math.round(Math.random() * 1E9) + `.${ext}`
+
+            cb(null, filename)
+        },
+        destination: (req, file, cb) => {
+            cb(null, './uploads')
+        }
+    })
+})
+
+module.exports = {auth, adminOnly, upload}

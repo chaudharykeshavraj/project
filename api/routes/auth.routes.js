@@ -1,11 +1,13 @@
-const {Router} = require('express')
-const RegisterCtrl = require('../controllers/auth/register.controller.js')      // RegisterCtrl is renamed of RegisterController
-const LoginCtrl = require('../controllers/auth/login.controller.js')
+const { Router } = require('express')
+const AuthorsCtrl = require('../controllers/cms/authors.controller.js')
 
 const router = Router()
 
-router.post('/register', RegisterCtrl.register)     //routes/index.js maa /auth put garesakeu
-
-router.post('/login', LoginCtrl.login)
+router.get('/', AuthorsCtrl.index)
+router.post('/', AuthorsCtrl.store)
+router.get('/:id', AuthorsCtrl.show)
+router.put('/:id', AuthorsCtrl.update)
+router.patch('/:id', AuthorsCtrl.update)
+router.delete('/:id', AuthorsCtrl.destroy)
 
 module.exports = router

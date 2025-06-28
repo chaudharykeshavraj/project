@@ -1,0 +1,13 @@
+BUILT-IN OBJECTS:
+-window (top level object: represents entire frontend)
+-document (most used object: interaction with html is done using this)
+-screen ()
+-location (address related task: address of current page,etc.)
+-navigator (extra sensors using: GPS, camera, microphone especially in mobile phones)
+
+any interaction is called as event in JS, event handling
+-inline event handling
+
+Document Object Model(DOM):
+-JS has access DOM
+browser creates DOM in load time. JS selects the records in DOM but not html

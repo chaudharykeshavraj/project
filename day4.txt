@@ -1,0 +1,30 @@
+schema
+
+MongoDB: schema less(not necessary structure)
+query less
+only collection
+
+admin, keshav2004
+
+use <database_name> to create and open
+db: shows current database
+db.movies.find() // list out all datas
+cls: clear screen
+
+db.movies.find({name: 'Titanic'})
+
+db.movies.find({"title": 'Titanic', $or: [{year: 1997}]})
+
+db.students.insertOne({name: 'Person A', age: 21})
+
+db.students.insertMany([{name: 'Person B', age: 33}, {name: 'Person C', age: 22}])
+
+db.students.updateOne({age: 21}, {$set: age: 29})	// update one
+
+db.students.updateMany({age: 22}, {$set: {age: 14}})	// update many
+
+db.students.replaceOne({age: 14}, {name: 'Person D'})	// replace is only one
+
+
+MIDDLEWARE
+application, router, first-party, third-party, error handling

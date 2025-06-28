@@ -4,7 +4,7 @@ const articleSchema = new Schema({
     title: {type: String, required: true},
     content: {type: String, required: true},
     image: {type: String, required: false},
-    categoryId: {type: Schema.Types.ObjectId, ref: 'Category', required: true}      // foreign Id ko case maa ObjectId
+    categoryId: {type: Schema.Types.ObjectId, ref: 'Category', required: true},
 }, {
     timestamps: true,
     autoIndex: true,

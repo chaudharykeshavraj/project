@@ -1,0 +1,12 @@
+tightly typed language and loosely typed language
+
+JS = loosely typed, every where variable type mention not necessary
+C / C++ = strictly typed language 
+
+
+in JS first data is given and according data type is set
+in C/C++ first data type is mentioned and then data is assigned
+
+later on TypeScript is used besides JS
+
+ES6 (ECMA Script): It is set of rules and JS is implementation.

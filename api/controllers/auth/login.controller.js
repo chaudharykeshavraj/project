@@ -1,9 +1,8 @@
-const {jwtKey} = require("../../library/constants.js")
+const { jwtKey } = require("../../library/constants.js")
 const { errorMsg, validationMsg } = require("../../library/functions.js")
-const User = require("../../models/user.model.js")
+const User = require("../../models/user.model")
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
 
 class LoginController {
     login = async (req, res, next) => {
@@ -13,11 +12,11 @@ class LoginController {
             const user = await User.findOne({email})
 
             if(user) {
-                if (bcrypt.compareSync(password, user.password)) {
+                if(bcrypt.compareSync(password, user.password)) {
                     const token = jwt.sign({
                         uid: user._id,
                         iat: Math.floor(Date.now() / 1000),
-                        exp: Math.floor(Date.now() / 1000) + (30*24*60*60),     // in jwt ke data raakhne teslai "payload" bhaninchha
+                        exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
                     }, jwtKey)
 
                     res.send({token})
@@ -31,9 +30,8 @@ class LoginController {
                     email: 'Given email is not registered!'
                 })
             }
-        
         } catch(error) {
-            errorMsg (error, next)
+            errorMsg(error, next)
         }
     }
 }

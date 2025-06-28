@@ -1,13 +1,12 @@
 const { errorMsg } = require("../../library/functions")
-const User = require('../../models/user.model.js')
-const bcrypt = require('bcryptjs')
+const Category = require('../../models/category.model.js')
 
-class AuthorsController {
+class CategoriesController {
     index = async (req, res, next) => {
         try {
-            const authors = await User.find({role: 'Author'})
+            const categories = await Category.find()
 
-            res.send(authors)
+            res.send(categories)
         } catch(error) {
             errorMsg(error, next)
         }
@@ -15,14 +14,12 @@ class AuthorsController {
     
     store = async (req, res, next) => {
         try {
-            const { name, email, password, phone, address } = req.body
+            const { name } = req.body
 
-            const hash = bcrypt.hashSync(password)
-
-            await User.create({ name, email, phone, address, password: hash, role: 'Author' })
+            await Category.create({ name })
 
             res.status(201).send({
-                message: 'Author added!'
+                message: 'Category added!'
             })
         } catch (error) {
             errorMsg(error, next)
@@ -33,13 +30,13 @@ class AuthorsController {
         try {
             const {id} = req.params
 
-            const author = await User.findById(id)
+            const category = await Category.findById(id)
 
-            if(author) {
-                res.send(author)
+            if(category) {
+                res.send(category)
             } else {
                 next({
-                    message: 'Author not found!',
+                    message: 'Category not found!',
                     status: 404,
                 })
             }
@@ -50,13 +47,13 @@ class AuthorsController {
     
     update = async (req, res, next) => {
         try {
-            const { name, phone, address } = req.body
+            const { name } = req.body
             const { id } = req.params
 
-            await User.findByIdAndUpdate(id, { name, phone, address })
+            await Category.findByIdAndUpdate(id, { name })
 
             res.send({
-                messsage: 'Author updated!'
+                messsage: 'Category updated!'
             })
         } catch (error) {
             errorMsg(error)
@@ -67,10 +64,10 @@ class AuthorsController {
         try {
             const { id } = req.params
 
-            await User.findByIdAndDelete(id)
+            await Category.findByIdAndDelete(id)
 
             res.send({
-                message: 'Author deleted!'
+                message: 'Category deleted!'
             })
         } catch (error) {
             errorMsg(error, next)
@@ -78,4 +75,4 @@ class AuthorsController {
     }
 }
 
-module.exports = new AuthorsController
+module.exports = new CategoriesController
