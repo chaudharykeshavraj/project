@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 
 export const Home = () => {
     return <>
@@ -6,7 +6,7 @@ export const Home = () => {
             <Col className="bg-white py-3 my-3 rounded-2 shadow-sm">
                 <Row>
                     <Col>
-                        <h1>ReactJs</h1>
+                        <h1>Welcome!</h1>
                     </Col>
                 </Row>
             </Col>

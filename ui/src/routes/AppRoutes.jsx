@@ -4,7 +4,5 @@ import { CmsRoutes } from "./CmsRoutes"
 export const AppRoutes = () => {
     return <BrowserRouter>
         <CmsRoutes />
-
-
     </BrowserRouter>
 }

@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { CmsLayout } from "../components/CmsLayout"
 import { Home } from "../pages/cms/home/Home"
+import { Login } from "../pages/cms/auth/Login"
 
 export const CmsRoutes = () => {
     return <Routes>
