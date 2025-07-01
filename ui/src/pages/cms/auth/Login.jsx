@@ -2,8 +2,14 @@ import { Button, Col, Form, Row, Spinner } from "react-bootstrap"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import http from "../../../library/http"
+import { useDispatch } from "react-redux"
+import { setUser } from "../../../store/user.slice"
+import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
+    const dispatch = useDispatch()     // hook functions start with use...
+    const navigate = useNavigate()
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -26,7 +32,9 @@ export const Login = () => {
                     }) */
                 })
                 .then(({data}) => {
-                    console.log(data)
+                    dispatch(setUser(data))
+
+                    navigate('/cms')
                 })
                 .catch(({response}) => {
                     //console.log(error)
