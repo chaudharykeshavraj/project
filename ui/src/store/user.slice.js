@@ -17,4 +17,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer    // reducers and reducer different , import directly with name
 
-export const {setUser, clearUser} = userSlice.actions       // named export, during import indirectly "import as ..."
+export const {setUser, clearUser} = userSlice.actions       // named export, during import indirectly "import as ...", data of store is volatile

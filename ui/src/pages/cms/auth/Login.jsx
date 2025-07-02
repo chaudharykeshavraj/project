@@ -45,6 +45,7 @@ export const Login = () => {
                 .finally(() => setSubmitting(false))
         }
     })
+    
     return <>
         <Row className="vh-100 align-items-center justify-content-center">
             <Col lg="4" className="bg-white my-5 py-3 rounded-2 shadow-sm mx-auto">
